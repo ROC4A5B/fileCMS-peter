@@ -19,7 +19,6 @@
   }
   else if (ISSET($_POST['selectFile'])) {
     $selectedFile = new filehandler($_POST['fileName']);
-    $_SESSION['fileName'] = $_POST['fileName'];
     $selectedFile->openFile('r');
     $content = $selectedFile->readFile();
 
