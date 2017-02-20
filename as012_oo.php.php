@@ -17,8 +17,9 @@
     $newFile = new filehandler($_POST['newFileName']);
     echo $newFile->createFile();
   }
-  else if (ISSET($_GET['selectFile'])) {
-    $selectedFile = new filehandler($_GET['fileName']);
+  else if (ISSET($_POST['selectFile'])) {
+    $selectedFile = new filehandler($_POST['fileName']);
+    $_SESSION['fileName'] = $_POST['fileName'];
     $selectedFile->openFile('r');
     $content = $selectedFile->readFile();
 
@@ -38,8 +39,8 @@
   else if (ISSET($_POST['fileInfo'])) {
     // Get the info form a file
     $fileInfo = new fileHandler($_POST['fileName']);
-    $fileInfo->getFileExtentsion();
-    $fileInfo->getFileSize();
+    echo $fileInfo->getFileExtentsion();
+    echo $fileInfo->getFileSize();
   }
 ?>
   <body>
@@ -54,7 +55,7 @@
             <input type="text" name="newFileName" />
             <input type="submit" value="Maak het bestand" name="newFileSubmit" />
           </form>
-          <form method="get">
+          <form method="post">
             <div>Selecteer het bestand</div>
             <?php
 
