@@ -38,7 +38,6 @@
     }
     function readFile() {
       // Reads the file
-      echo $this->fileName;
       $fileExists = $this->checkFileExists();
       if ($fileExists) {
         $this->fileContent = file_get_contents($this->fileName);

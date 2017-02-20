@@ -17,9 +17,8 @@
     $newFile = new filehandler($_POST['newFileName']);
     echo $newFile->createFile();
   }
-  else if (ISSET($_POST['selectFile'])) {
-    $selectedFile = new filehandler($_POST['fileName']);
-    $_SESSION['fileName'] = $_POST['fileName'];
+  else if (ISSET($_GET['selectFile'])) {
+    $selectedFile = new filehandler($_GET['fileName']);
     $selectedFile->openFile('r');
     $content = $selectedFile->readFile();
 
@@ -55,7 +54,7 @@
             <input type="text" name="newFileName" />
             <input type="submit" value="Maak het bestand" name="newFileSubmit" />
           </form>
-          <form method="post">
+          <form method="get">
             <div>Selecteer het bestand</div>
             <?php
 
@@ -72,7 +71,7 @@
           ?>
         </div>
         <div class="col-2"></div>
-        <!-- <div class="footer col-12">Powered by SameBestDevelopment</div> -->
+        <div class="footer col-12 no-padding">Powered by SameBestDevelopment</div>
     </div>
 
   </body>
