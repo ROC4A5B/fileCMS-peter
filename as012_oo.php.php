@@ -45,8 +45,8 @@
 ?>
   <body>
     <div class="row">
-      <div class="col-12">
-        <img class="col-12" src="logo.png" />
+      <div class="col-12 no-padding">
+        <img class="col-12 no-padding" src="logo.png" />
         <h1 class="col-12">File CMS</h1>
         <div class="col-2"></div>
         <div class="col-8">
