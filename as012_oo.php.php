@@ -54,17 +54,14 @@
             <input type="text" name="newFileName" />
             <input type="submit" value="Maak het bestand" name="newFileSubmit" />
           </form>
-          <form method="post">
-            <div>Selecteer het bestand</div>
+
             <?php
 
             $fileList = new filehandler('');
-            echo $fileList->getFileList();
+            $fileList = $fileList->getFileList();
+            $view = new view();
+            echo $view->createFileList($fileList);
 
-            ?>
-            <input type="submit" name='selectFile' value="Haal het bestand op"/><input type="submit" name="removeFile" value="Verwijder het bestand"><input type="submit" name="fileInfo" value="Informatie over het bestand" />
-          </form>
-          <?php
             if (ISSET($form)) {
                 echo $form;
             }

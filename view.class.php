@@ -14,6 +14,18 @@
      ';
      return($form);
    }
+   function createFileList($fileList) {
+     // Create the file list form
+     $itemsFromTheDirectory = '<form method="post"><div>Selecteer het bestand</div>';
+     $itemsFromTheDirectory .= "<select name='fileName'>";
+     foreach ($fileList as $value) {
+       $itemsFromTheDirectory .= "<option value='" . $value ."'>" .$value . "</option>";
+     }
+     $itemsFromTheDirectory .= "</select>";
+     $itemsFromTheDirectory .= '<input type="submit" name="selectFile" value="Haal het bestand op"/><input type="submit" name="removeFile" value="Verwijder het bestand"><input type="submit" name="fileInfo" value="Informatie over het bestand" />';
+     $itemsFromTheDirectory .= '</form>';
+     return($itemsFromTheDirectory);
+   }
  }
 
 ?>

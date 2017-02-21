@@ -155,14 +155,7 @@
       unset($directoryScan[0]);
       unset($directoryScan[1]);
       // We remove the first items because we don't want dot's in the array
-
-
-      $itemsFromTheDirectory = "<select name='fileName'>";
-      foreach ($directoryScan as $value) {
-        $itemsFromTheDirectory .= "<option value='" . $value ."'>" .$value . "</option>";
-      }
-      $itemsFromTheDirectory .= "</select>";
-      return($itemsFromTheDirectory);
+      return($directoryScan);
     }
   }
 ?>
