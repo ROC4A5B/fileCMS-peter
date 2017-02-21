@@ -109,6 +109,17 @@ html {
 .no-padding {
   padding: 0;
 }
+.save-button {
+  padding: 1em;
+  background-color: red;
+  color: white;
+  font-size: 1em;
+  margin: 1em 0em;
+}
+textarea {
+  height: 13em;
+  padding: 0.1em !important;
+}
 /* For mobile phones: */
 [class*="col-"] {
     width: 100%;
