@@ -24,6 +24,7 @@
     // File properties
 
     function __construct($fileName) {
+      // Constructor set the filename
       // We only run the constructor if it has a value
       if (ISSET($fileName)) {
         if ($fileName > '') {
@@ -50,7 +51,6 @@
       $fileExists = $this->checkFileExists();
       if ($fileExists) {
         $fileName = $this->fileName;
-        $_SESSION['fileName'] = $this->fileName;
         $this->file = fopen($fileName, $mode);
       }
       else {
