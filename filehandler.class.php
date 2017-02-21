@@ -106,6 +106,7 @@
           $file = $this->file;
           fwrite($file, $this->checkInput($data));
           $this->closeFile();
+          // First close the file to prefent on a refresh that the file becomes empty
           $this->openFile('r');
       }
       else {
@@ -121,6 +122,7 @@
       return ($data);
     }
     private function clearProperties() {
+      // Clear the properties
       $this->file = "";
       $this->fileName = "";
       $this->fileContent = "";
@@ -128,6 +130,7 @@
       $this->fileSize = "";
     }
     function deleteFile() {
+      // Delete a file
       $file = $this->fileName;
       unlink($file);
       $this->clearProperties();
