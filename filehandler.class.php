@@ -75,6 +75,8 @@
       fclose($this->file);
       // Clears the properties
 
+      $this->clearProperties();
+
       return("File is closed");
     }
     private function checkFileExists() {
@@ -118,15 +120,17 @@
       $data = htmlentities($data);
       return ($data);
     }
-    function deleteFile() {
-      $file = $this->fileName;
-      unlink($file);
-
+    private function clearProperties() {
       $this->file = "";
       $this->fileName = "";
       $this->fileContent = "";
       $this->fileExtension = "";
       $this->fileSize = "";
+    }
+    function deleteFile() {
+      $file = $this->fileName;
+      unlink($file);
+      $this->clearProperties();
     }
     function getFileSize() {
       // Get the file size from the file
