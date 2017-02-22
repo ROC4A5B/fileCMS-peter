@@ -57,7 +57,7 @@
         return("File doesn't exists RUN create file");
       }
     }
-    function stringToArray() {
+    private function stringToArray() {
       // This function creates a array from a string
       $string = $this->fileName;
       $array = explode(",", $string);
@@ -71,7 +71,7 @@
     function createMultipleFiles() {
       $this->stringToArray();
     }
-    function createFile() {
+    private function createFile() {
       // Create a file
       $fileExists = $this->checkFileExists();
       if (!$fileExists) {
