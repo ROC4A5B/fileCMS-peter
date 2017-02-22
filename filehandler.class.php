@@ -57,6 +57,24 @@
         return("File doesn't exists RUN create file");
       }
     }
+    function stringToArray($arrayString) {
+      // This function creates a array from a string
+      $string = $arrayString;
+      $array = explode(",", $string);
+      $arrayLenght = count($array);
+      // Explode is seperating the , and creates a array
+      for ($i=0; $i < $arrayLenght; $i++) {
+        $this->fileName = $array[$i];
+        $this->createFile();
+      }
+    }
+    function createMultipleFiles($stringArray) {
+      $this->stringToArray($stringArray);
+      // String hier van AJAX
+      // Stuur string naar stringToArray
+      // Foreach array
+      // In de methode spreken we create file
+    }
     function createFile() {
       // Create a file
       $fileExists = $this->checkFileExists();

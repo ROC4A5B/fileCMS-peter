@@ -28,7 +28,7 @@
           <form class="col-12" action="ctrl.filehandler.php" method="post">
             <div>Nieuw bestand</div>
             <input type="text" id="newFileName" name="newFileName" />
-            <button type="button" onclick="transformArrayToFiles(newFileName);">Create file</button>
+            <button type="button" onclick='handlerControler("create", newFileName);'>Create file</button>
           </form>
           <div id="fileList"></div>
           <div id="editor"></div>

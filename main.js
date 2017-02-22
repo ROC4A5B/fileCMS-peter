@@ -49,22 +49,22 @@ function updateFile(fileName, content) {
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(postParameters);
 }
-function transformArrayToFiles(string) {
-  // This function we use to transform a string to an array
-  // var shoplistArray = shoplist.split(" ");
-
-  var stringToArray = string.value;
-  console.log(stringToArray);
-  var array = stringToArray.split(",");
-  // converting to a array
-  // Remove the ","
-
-  for (var i = 0; i < array.length; i++) {
-    // reads the array
-    // Sends a value from the array to the handlerController that create the file
-    handlerControler('create', array[i]);
-  }
-}
+// function transformArrayToFiles(string) {
+//   // This function we use to transform a string to an array
+//   // var shoplistArray = shoplist.split(" ");
+//
+//   var stringToArray = string.value;
+//   console.log(stringToArray);
+//   var array = stringToArray.split(",");
+//   // converting to a array
+//   // Remove the ","
+//
+//   for (var i = 0; i < array.length; i++) {
+//     // reads the array
+//     // Sends a value from the array to the handlerController that create the file
+//     handlerControler('create', array[i]);
+//   }
+// }
 
 
 function getFile(fileName) {
@@ -102,6 +102,7 @@ function handlerControler(action, fileName) {
   // We use POST request
   // In the action contains the todo
     // So create or delete
+  fileName = fileName.value;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
