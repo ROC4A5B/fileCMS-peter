@@ -134,6 +134,7 @@
       $file = $this->fileName;
       unlink($file);
       $this->clearProperties();
+      return('delete');
     }
     function getFileSize() {
       // Get the file size from the file

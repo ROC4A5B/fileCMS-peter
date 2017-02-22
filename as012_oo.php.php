@@ -9,63 +9,29 @@
   <meta name="author" content="Peter Romijn">
   <meta name="description" content="Text file CMS">
   <link rel="stylesheet" href="style.css" type="text/css">
+
+  <script src="main.js"></script>
   </head>
-<?php
+  <?php
   require 'filehandler.class.php';
   require 'view.class.php';
-  if (ISSET($_POST['newFileSubmit'])) {
-    $newFile = new filehandler($_POST['newFileName']);
-    echo $newFile->createFile();
-  }
-  else if (ISSET($_POST['selectFile'])) {
-    $selectedFile = new filehandler($_POST['fileName']);
-    $selectedFile->openFile('r');
-    $content = $selectedFile->readFile();
 
-    $form = new view();
-    $form = $form->createTextForm($_POST['fileName'], $content);
-  }
-  else if (ISSET($_POST['updateFile'])) {
-    $updateFile = new filehandler('');
-    $updateFile->setFileName($_POST['fileName']);
-    $updateFile->updateFile($_POST['content']);
-  }
-  else if (ISSET($_POST['removeFile'])) {
-    // Remove a file
-    $removeFile = new fileHandler($_POST['fileName']);
-    $removeFile->deleteFile();
-  }
-  else if (ISSET($_POST['fileInfo'])) {
-    // Get the info form a file
-    $fileInfo = new fileHandler($_POST['fileName']);
-    echo $fileInfo->getFileExtentsion();
-    echo $fileInfo->getFileSize();
-  }
-?>
-  <body>
+  ?>
+  <body onload="getFileList();">
     <div class="row">
       <div class="col-12 no-padding">
         <img class="col-12 no-padding" src="logo.png" />
         <h1 class="col-12">File CMS</h1>
         <div class="col-2"></div>
         <div class="col-8">
-          <form class="col-12" method="post">
+          <form class="col-12" action="ctrl.filehandler.php" method="post">
             <div>Nieuw bestand</div>
-            <input type="text" name="newFileName" />
-            <input type="submit" value="Maak het bestand" name="newFileSubmit" />
+            <input type="text" id="newFileName" name="newFileName" />
+            <button type="button" onclick="createFile(newFileName);">Create file</button>
           </form>
-
-            <?php
-
-            $fileList = new filehandler('');
-            $fileList = $fileList->getFileList();
-            $view = new view();
-            echo $view->createFileList($fileList);
-
-            if (ISSET($form)) {
-                echo $form;
-            }
-          ?>
+          <div id="fileList"></div>
+          <div id="editor"></div>
+          <div id="result"></div>
         </div>
         <div class="col-2"></div>
         <div class="footer col-12 no-padding">Powered by SameBestDevelopment</div>
