@@ -6,10 +6,10 @@
      $form = '
        <form class="col-12" action="ctrl.filehandler.php" method="post">
          <div>Bestandsnaam</div>
-         <input type="text" name="fileName" value="' . $fileName . '"/>
+         <input type="text" name="fileName" id="fileName" value="' . $fileName . '"/>
          <div>Content</div>
-         <textarea class="col-12" name="content">' . $content . '</textarea>
-         <input class="col-4 save-button" type="submit" name="update" value="opslaan" />
+         <textarea class="col-12" id="content" name="content">' . $content . '</textarea>
+         <button type="button" class="col-4 save-button" onclick="updateFile(fileName, content);">Update File</button>
        </form>
      ';
      return($form);
@@ -23,7 +23,7 @@
      }
      $itemsFromTheDirectory .= "</select>";
     //  $itemsFromTheDirectory .= '<input type="submit" name="todo" value="info" />';
-     $itemsFromTheDirectory .= "<button type='button' onclick='getFileInfo(fileName);'>File info</button><button type='button' onclick='removeFile(fileName);'>Remove</button><button type='button' onclick='getFile(fileName);'>Read</button>";
+     $itemsFromTheDirectory .= "<button type='button' onclick='handlerControler(".'"info"'.", fileName);'>File info</button><button type='button' onclick='handlerControler(".'"delete"'.", fileName);'>Remove</button><button type='button' onclick='getFile(fileName);'>Read</button>";
      $itemsFromTheDirectory .= '</form>';
      return($itemsFromTheDirectory);
    }

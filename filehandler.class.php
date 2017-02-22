@@ -108,6 +108,7 @@
           $this->closeFile();
           // First close the file to prefent on a refresh that the file becomes empty
           $this->openFile('r');
+          return("Update");
       }
       else {
         return("Couldn't wirte something");

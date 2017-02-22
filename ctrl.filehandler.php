@@ -25,7 +25,8 @@ if (ISSET($_REQUEST['todo'])) {
     case 'update':
       $updateFile = new filehandler('');
       $updateFile->setFileName($_REQUEST['fileName']);
-      $updateFile->updateFile($_REQUEST['content']);
+      $updateFile = $updateFile->updateFile($_REQUEST['content']);
+      echo $updateFile;
       break;
     case 'info':
       $fileInfo = new fileHandler($_REQUEST['fileName']);
