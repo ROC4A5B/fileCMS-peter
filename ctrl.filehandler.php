@@ -7,7 +7,7 @@ if (ISSET($_REQUEST['todo'])) {
   switch ($_REQUEST['todo']) {
     case 'create':
       $newFile = new filehandler($_REQUEST['fileName']);
-      echo $newFile->createMultipleFiles($_REQUEST['fileName']);
+      echo $newFile->createMultipleFiles();
       break;
     case 'read':
       $selectedFile = new filehandler($_REQUEST['fileName']);
