@@ -32,6 +32,10 @@
         }
       }
     }
+    function __destruct() {
+      // Clears the class
+      $this->clearProperties();
+    }
     function setFileName($fileName) {
       // Set the file name
       $fileName = $this->checkInput($fileName);
